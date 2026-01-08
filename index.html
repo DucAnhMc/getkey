@@ -109,3 +109,131 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>GET KEY</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f2f4f8;
+}
+header{
+  background:linear-gradient(90deg,#0d6efd,#00c6ff);
+  padding:15px;
+  color:#fff;
+  font-size:22px;
+  font-weight:bold;
+}
+.container{padding:20px}
+h2{text-align:center;color:#00aaff}
+input{
+  width:100%;
+  padding:12px;
+  font-size:16px;
+  border-radius:5px;
+  border:1px solid #ccc;
+  margin:10px 0;
+}
+.captcha{
+  border:1px solid #ccc;
+  background:#fff;
+  padding:10px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.timer{color:red;text-align:center;margin:10px 0}
+button{
+  width:100%;
+  padding:12px;
+  background:#4caf50;
+  color:white;
+  border:none;
+  font-size:16px;
+  border-radius:5px;
+}
+.guide{
+  margin-top:20px;
+  padding:15px;
+  border:2px dashed #00aaff;
+  background:#eaf6ff;
+}
+.error{color:red;text-align:center}
+</style>
+</head>
+
+<body>
+<header>Link4M</header>
+
+<div class="container">
+<h2>VUI LÒNG NHẬP MÃ ĐỂ TIẾP TỤC</h2>
+
+<input id="keyInput" placeholder="Nhập mã">
+
+<div class="captcha">
+  <input type="checkbox" id="human">
+  <label for="human">Tôi không phải là người máy</label>
+</div>
+
+<div class="timer">Thời gian phiên còn: <span id="time">600</span></div>
+
+<button onclick="checkKey()">Click vào đây để tiếp tục</button>
+
+<p class="error" id="msg"></p>
+
+<div class="guide">
+<b>HƯỚNG DẪN LẤY MÃ</b><br><br>
+✔ Sử dụng Chrome<br>
+❌ Không click quảng cáo<br>
+❌ Không dùng ẩn danh
+</div>
+</div>
+
+<script>
+// 🔑 KEY ĐÚNG (BẠN ĐỔI Ở ĐÂY)
+const VALID_KEY = "DUCANH-12345";
+
+// ⏱ Đếm ngược
+let t = 600;
+setInterval(()=>{
+  if(t>0){
+    t--;
+    document.getElementById("time").innerText = t;
+  }
+},1000);
+
+// ✅ Kiểm tra key
+function checkKey(){
+  const key = document.getElementById("keyInput").value.trim();
+  const human = document.getElementById("human").checked;
+  const msg = document.getElementById("msg");
+
+  if(!human){
+    msg.innerText = "❌ Vui lòng xác nhận bạn không phải robot";
+    return;
+  }
+
+  if(key === VALID_KEY){
+    window.location.href = "https://google.com"; // LINK ĐÍCH
+  }else{
+    msg.innerText = "❌ Mã không đúng";
+  }
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
