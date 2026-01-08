@@ -1,143 +1,67 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<title>Link4M</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body{
- font-family:Arial;
- background:#f2f4f8;
- margin:0;
-}
-.header{
- background:linear-gradient(to right,#007bff,#00c6ff);
- color:white;
- padding:15px;
- font-size:22px;
- font-weight:bold;
-}
-.container{
- padding:20px;
-}
-.title{
- text-align:center;
- color:#1e88e5;
- font-size:20px;
- font-weight:bold;
- margin-bottom:20px;
-}
-input{
- width:100%;
- padding:15px;
- font-size:16px;
- border:1px solid #ccc;
- border-radius:5px;
-}
-.captcha{
- margin:15px 0;
- border:1px solid #ccc;
- padding:10px;
- border-radius:5px;
- background:white;
-}
-.timer{
- color:red;
- text-align:center;
- margin:10px 0;
-}
-.btn{
- background:#4caf50;
- color:white;
- padding:15px;
- border:none;
- border-radius:5px;
- font-size:18px;
- width:100%;
-}
-.box{
- margin-top:20px;
- border:2px dashed #4da3ff;
- padding:15px;
- background:#e9f4ff;
-}
-.box h4{
- color:red;
- margin:0 0 10px;
-}
-.box p{
- margin:5px 0;
-}
-.msg{color:red;text-align:center;margin-top:10px}
-a{color:#1e88e5;text-decoration:none}
-</style>
+  <meta charset="UTF-8">
+  <title>GET KEY</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f2f6fa;
+      text-align: center;
+      padding: 30px;
+    }
+    .box {
+      max-width: 400px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    button {
+      padding: 10px;
+      width: 100%;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
 
-<div class="header">Link4M</div>
-
-<div class="container">
-
-<div class="title">
-VUI LÒNG NHẬP MÃ ĐỂ TIẾP TỤC TỚI TRANG ĐÍCH
-</div>
-
-<input id="key" placeholder="Nhập mã">
-
-<div class="captcha">
-<input type="checkbox" id="robot"> Tôi không phải là người máy
-</div>
-
-<div class="timer">
-Thời gian phiên còn: <span id="time">599</span>
-</div>
-
-<button class="btn" onclick="check()">Click vào đây để tiếp tục</button>
-
-<div class="msg" id="msg"></div>
-
 <div class="box">
-<h4>HƯỚNG DẪN LẤY MÃ</h4>
-<p>✔ Sử dụng trình duyệt Chrome</p>
-<p>❌ Không click quảng cáo được tài trợ</p>
-<p>❌ Không dùng trình duyệt ẩn danh</p>
-<p><a href="lay-ma.html">👉 LẤY MÃ TẠI ĐÂY</a></p>
-</div>
+  <h2>🔑 NHẬP KEY ĐỂ TIẾP TỤC</h2>
 
+  <button onclick="getKey()">👉 LẤY KEY</button>
+
+  <input id="key" placeholder="Nhập key vào đây">
+  <button onclick="checkKey()">XÁC NHẬN</button>
+
+  <p id="msg"></p>
 </div>
 
 <script>
-let t=599;
-setInterval(()=>{
- if(t>0){
-  t--;
-  time.innerText=t;
- }
-},1000);
+  const KEY = "ABC123"; // ← đổi key tại đây
+  const LINK4M = "https://link4m.com/XXXXX"; // ← link4m của bạn
+  const REDIRECT = "https://google.com"; // ← link đích
 
-function check(){
- if(!robot.checked){
-  msg.innerText="Vui lòng xác nhận bạn không phải người máy";
-  return;
- }
- let data=localStorage.getItem("VIP_KEY");
- if(!data){
-  msg.innerText="Bạn chưa lấy mã";
-  return;
- }
- data=JSON.parse(data);
- if(Date.now()>data.exp){
-  msg.innerText="Mã đã hết hạn";
-  localStorage.removeItem("VIP_KEY");
-  return;
- }
- if(key.value===data.key){
-  localStorage.removeItem("VIP_KEY");
-  location.href="https://google.com"; // LINK ĐÍCH
- }else{
-  msg.innerText="Sai mã";
- }
-}
+  function getKey() {
+    window.location.href = LINK4M;
+  }
+
+  function checkKey() {
+    const k = document.getElementById("key").value;
+    if (k === KEY) {
+      window.location.href = REDIRECT;
+    } else {
+      document.getElementById("msg").innerText = "❌ KEY SAI";
+    }
+  }
 </script>
 
 </body>
