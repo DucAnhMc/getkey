@@ -2,60 +2,110 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Get Key</title>
+  <title>WEB GET KEY</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f2f2f2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f2f4f8;
     }
 
-    .box {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
+    header {
+      background: linear-gradient(90deg,#0d6efd,#00c6ff);
+      padding: 15px;
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    h2 {
       text-align: center;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      color: #00aaff;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      margin: 15px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .captcha {
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .captcha-box {
+      width: 20px;
+      height: 20px;
+      border: 1px solid #333;
+    }
+
+    .timer {
+      color: red;
+      text-align: center;
+      margin: 10px 0;
     }
 
     button {
-      padding: 12px 25px;
+      width: 100%;
+      padding: 12px;
+      background: #4caf50;
+      color: white;
       font-size: 16px;
       border: none;
-      border-radius: 6px;
-      background: #4CAF50;
-      color: white;
-      cursor: pointer;
+      border-radius: 5px;
     }
 
-    button:hover {
-      background: #45a049;
+    .guide {
+      background: #eaf6ff;
+      border: 2px dashed #00aaff;
+      padding: 15px;
+      margin-top: 20px;
     }
 
-    #key {
-      margin-top: 15px;
-      font-weight: bold;
-      color: #333;
+    .guide b {
+      color: red;
     }
   </style>
 </head>
 <body>
 
-  <div class="box">
-    <h1>WEB GET KEY</h1>
-    <button onclick="getKey()">GET KEY</button>
-    <div id="key"></div>
+<header>Link4M</header>
+
+<div class="container">
+  <h2>VUI LÒNG NHẬP MÃ ĐỂ TIẾP TỤC TỚI TRANG ĐÍCH</h2>
+
+  <input type="text" placeholder="Nhập mã">
+
+  <div class="captcha">
+    <div class="captcha-box"></div>
+    <span>Tôi không phải là người máy</span>
   </div>
 
-  <script>
-    function getKey() {
-      document.getElementById("key").innerText = "KEY: ABCD-1234";
-    }
-  </script>
+  <div class="timer">Thời gian phiên còn: 599</div>
+
+  <button>Click vào đây để tiếp tục</button>
+
+  <div class="guide">
+    <b>HƯỚNG DẪN LẤY MÃ</b><br><br>
+    ✔ Sử dụng trình duyệt Chrome<br>
+    ❌ Không click quảng cáo được tài trợ<br>
+    ❌ Không dùng trình duyệt ẩn danh
+  </div>
+</div>
 
 </body>
 </html>
