@@ -1,169 +1,24 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>WEB GET KEY</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f2f4f8;
-    }
-
-    header {
-      background: linear-gradient(90deg,#0d6efd,#00c6ff);
-      padding: 15px;
-      color: white;
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    .container {
-      padding: 20px;
-    }
-
-    h2 {
-      text-align: center;
-      color: #00aaff;
-    }
-
-    input {
-      width: 100%;
-      padding: 12px;
-      font-size: 16px;
-      margin: 15px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-
-    .captcha {
-      background: #fff;
-      border: 1px solid #ccc;
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .captcha-box {
-      width: 20px;
-      height: 20px;
-      border: 1px solid #333;
-    }
-
-    .timer {
-      color: red;
-      text-align: center;
-      margin: 10px 0;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      background: #4caf50;
-      color: white;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-    }
-
-    .guide {
-      background: #eaf6ff;
-      border: 2px dashed #00aaff;
-      padding: 15px;
-      margin-top: 20px;
-    }
-
-    .guide b {
-      color: red;
-    }
-  </style>
-</head>
-<body>
-
-<header>Link4M</header>
-
-<div class="container">
-  <h2>VUI LÒNG NHẬP MÃ ĐỂ TIẾP TỤC TỚI TRANG ĐÍCH</h2>
-
-  <input type="text" placeholder="Nhập mã">
-
-  <div class="captcha">
-    <div class="captcha-box"></div>
-    <span>Tôi không phải là người máy</span>
-  </div>
-
-  <div class="timer">Thời gian phiên còn: 599</div>
-
-  <button>Click vào đây để tiếp tục</button>
-
-  <div class="guide">
-    <b>HƯỚNG DẪN LẤY MÃ</b><br><br>
-    ✔ Sử dụng trình duyệt Chrome<br>
-    ❌ Không click quảng cáo được tài trợ<br>
-    ❌ Không dùng trình duyệt ẩn danh
-  </div>
-</div>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="vi">
-<head>
 <meta charset="UTF-8">
-<title>GET KEY</title>
+<title>Link4M</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <style>
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#f2f4f8;
-}
+body{margin:0;font-family:Arial;background:#f2f4f8}
 header{
   background:linear-gradient(90deg,#0d6efd,#00c6ff);
-  padding:15px;
-  color:#fff;
-  font-size:22px;
-  font-weight:bold;
+  padding:15px;color:white;font-size:22px;font-weight:bold
 }
 .container{padding:20px}
 h2{text-align:center;color:#00aaff}
-input{
-  width:100%;
-  padding:12px;
-  font-size:16px;
-  border-radius:5px;
-  border:1px solid #ccc;
-  margin:10px 0;
-}
-.captcha{
-  border:1px solid #ccc;
-  background:#fff;
-  padding:10px;
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-.timer{color:red;text-align:center;margin:10px 0}
+input{width:100%;padding:12px;font-size:16px;margin:10px 0}
 button{
-  width:100%;
-  padding:12px;
-  background:#4caf50;
-  color:white;
-  border:none;
-  font-size:16px;
-  border-radius:5px;
+  width:100%;padding:12px;background:#4caf50;
+  color:white;border:none;font-size:16px;border-radius:5px
 }
-.guide{
-  margin-top:20px;
-  padding:15px;
-  border:2px dashed #00aaff;
-  background:#eaf6ff;
-}
-.error{color:red;text-align:center}
+.timer{color:red;text-align:center}
+.error{text-align:center;color:red}
 </style>
 </head>
 
@@ -173,67 +28,55 @@ button{
 <div class="container">
 <h2>VUI LÒNG NHẬP MÃ ĐỂ TIẾP TỤC</h2>
 
-<input id="keyInput" placeholder="Nhập mã">
+<input id="key" placeholder="Nhập mã">
 
-<div class="captcha">
-  <input type="checkbox" id="human">
-  <label for="human">Tôi không phải là người máy</label>
-</div>
+<label>
+  <input type="checkbox" id="human"> Tôi không phải là người máy
+</label>
 
-<div class="timer">Thời gian phiên còn: <span id="time">600</span></div>
+<p class="timer">Thời gian phiên còn: <span id="time">10</span></p>
 
-<button onclick="checkKey()">Click vào đây để tiếp tục</button>
-
+<button onclick="check()">Tiếp tục</button>
 <p class="error" id="msg"></p>
-
-<div class="guide">
-<b>HƯỚNG DẪN LẤY MÃ</b><br><br>
-✔ Sử dụng Chrome<br>
-❌ Không click quảng cáo<br>
-❌ Không dùng ẩn danh
-</div>
 </div>
 
 <script>
-// 🔑 KEY ĐÚNG (BẠN ĐỔI Ở ĐÂY)
-const VALID_KEY = "DUCANH-12345";
-
 // ⏱ Đếm ngược
-let t = 600;
-setInterval(()=>{
+let t=10;
+const timer=setInterval(()=>{
   if(t>0){
     t--;
-    document.getElementById("time").innerText = t;
+    time.innerText=t;
   }
 },1000);
 
-// ✅ Kiểm tra key
-function checkKey(){
-  const key = document.getElementById("keyInput").value.trim();
-  const human = document.getElementById("human").checked;
-  const msg = document.getElementById("msg");
+// 🔑 KEY + LINK THEO ID
+const links = {
+  "9jSjCPrG": {
+    key: "DUCANH-KEY",
+    url: "https://google.com"
+  }
+};
 
-  if(!human){
-    msg.innerText = "❌ Vui lòng xác nhận bạn không phải robot";
+const params = new URLSearchParams(location.search);
+const id = params.get("id");
+
+function check(){
+  const input = key.value.trim();
+  if(!human.checked){
+    msg.innerText="❌ Xác nhận bạn không phải robot";
     return;
   }
-
-  if(key === VALID_KEY){
-    window.location.href = "https://google.com"; // LINK ĐÍCH
+  if(!links[id]){
+    msg.innerText="❌ Link không hợp lệ";
+    return;
+  }
+  if(input === links[id].key){
+    location.href = links[id].url;
   }else{
-    msg.innerText = "❌ Mã không đúng";
+    msg.innerText="❌ Sai mã";
   }
 }
 </script>
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
