@@ -1,10 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
   <title>Get Key</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      background: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+
+    #key {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
-  <h1>WEB GET KEY</h1>
+
+  <div class="box">
+    <h1>WEB GET KEY</h1>
+    <button onclick="getKey()">GET KEY</button>
+    <div id="key"></div>
+  </div>
+
+  <script>
+    function getKey() {
+      document.getElementById("key").innerText = "KEY: ABCD-1234";
+    }
+  </script>
+
 </body>
 </html>
